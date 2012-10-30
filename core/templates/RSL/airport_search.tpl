@@ -61,16 +61,24 @@ $(document).ready(function(){
                 <select class="search" name="aircraft">
                     <option value="">All</option>
                     <?php
-                        foreach ($aircrafts as $aircraft)
-                            {
+						$airc = RealScheduleLiteData::routeaircraft($last_location->arricao);
+						if(!$airc)
+							{
+								echo '<option>No Aircraft Available!</option>';
+							}
+						else
+							{
+								foreach ($airc as $air)
+									{
+									$ai = RealScheduleLiteData::getaircraftbyID($air->aircraft);
 					?>
-							<option value="<?php echo $aircraft->icao ;?>"><?php
-							$airc = RealScheduleLiteData::getaircraftbyicao($aircraft->icao);
-							echo $airc->name ;?></option>
+							<option value="<?php echo $ai->icao ;?>"><?php
+							echo $ai->name ;?></option>
 					<?php
+									}
 							}
                     ?>
-                </select>
+                </select> <img src="http://www.parkho.ir/info.png" title="Available aircraft to search from your current location">
             </td>
         </tr>
         <tr>
@@ -80,13 +88,20 @@ $(document).ready(function(){
                     <option value="">All</option>
                     <?php
 						$airs = RealScheduleLiteData::arrivalairport($last_location->arricao);
-						
-                        foreach ($airs as $air)
-                            {
-							$nam = OperationsData::getAirportInfo($air->arricao);
-							echo '<option value="'.$air->arricao.'">'.$air->arricao.' - '.$nam->name.'</option>';}
+						if(!$airs)
+							{
+								echo '<option>No Airports Available!</option>';
+							}
+						else
+							{
+								foreach ($airs as $air)
+									{
+										$nam = OperationsData::getAirportInfo($air->arricao);
+										echo '<option value="'.$air->arricao.'">'.$air->arricao.' - '.$nam->name.'</option>';
+									}
+							}
                     ?>
-                </select>
+                </select> <img src="http://www.parkho.ir/info.png" title="Available airports to search from your current location">
             </td>
         </tr>
 		<tr>
