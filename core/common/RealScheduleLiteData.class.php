@@ -48,7 +48,7 @@ class RealScheduleLiteData extends codondata
 
     public function get_pilot_location($pilot)
     {
-        $query = "SELECT * FROM realschedulelite_location WHERE pilot_id='$pilot'";
+        $query = "SELECT * FROM flightbookingsystem_location WHERE pilot_id='$pilot'";
 
         $real_location = DB::get_row($query);
 
@@ -68,19 +68,19 @@ class RealScheduleLiteData extends codondata
     {
         $pilot = Auth::$userinfo->pilotid;//wont work for listener
 
-        $query = "SELECT * FROM realschedulelite_location WHERE pilot_id='$pilot'";
+        $query = "SELECT * FROM flightbookingsystem_location WHERE pilot_id='$pilot'";
 
         $check = DB::get_row($query);
 
         if(!$check)
         {
-            $query1 = "INSERT INTO realschedulelite_location (pilot_id, arricao, jumpseats, last_update)
+            $query1 = "INSERT INTO flightbookingsystem_location (pilot_id, arricao, jumpseats, last_update)
                     VALUES ('$pilot', '$icao', '1', NOW())";
         }
         else
         {
             $jumpseats = $check->jumpseats + 1;
-            $query1 = "UPDATE realschedulelite_location SET arricao='$icao', jumpseats='$jumpseats', last_update=NOW() WHERE pilot_id='$pilot'";
+            $query1 = "UPDATE flightbookingsystem_location SET arricao='$icao', jumpseats='$jumpseats', last_update=NOW() WHERE pilot_id='$pilot'";
         }
 
         DB::query($query1);
