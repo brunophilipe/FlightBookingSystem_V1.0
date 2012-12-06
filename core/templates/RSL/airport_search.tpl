@@ -78,7 +78,7 @@ $(document).ready(function(){
 									}
 							}
                     ?>
-                </select> <img src="http://www.parkho.ir/info.png" title="Available aircraft to search from your current location">
+                </select> <img src="<?php echo fileurl('/images/info.png') ;?>" title="Available aircraft to search from your current location">
             </td>
         </tr>
         <tr>
@@ -101,7 +101,7 @@ $(document).ready(function(){
 									}
 							}
                     ?>
-                </select> <img src="http://www.parkho.ir/info.png" title="Available airports to search from your current location">
+                </select> <img src="<?php echo fileurl('/images/info.png') ;?>" title="Available airports to search from your current location">
             </td>
         </tr>
 		<tr>
