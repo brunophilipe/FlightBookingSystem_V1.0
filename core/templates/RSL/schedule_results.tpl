@@ -68,13 +68,13 @@ foreach($allroutes as $route)
 		if($route->bidid != 0)
 	    {
         ?>
-        <img src="<?php echo fileurl('/lib/Book2.png') ;?>" border="0">
+        <img src="<?php echo fileurl('/lib/images/Book2.png') ;?>" border="0">
         <?php
 		}
         else
 		{
 		?>
-	    <a id="<?php echo $route->id; ?>" class="addbid" href="<?php echo url('/schedules/addbid');?>"><input type="button" value="Book"></a>
+	    <a id="<?php echo $route->id; ?>" class="addbid" href="<?php echo url('/schedules/addbid');?>"><img src="<?php echo fileurl('/lib/images/Book1.png') ;?>" border="0"></a>
         <?php                    
         }
         ?>
