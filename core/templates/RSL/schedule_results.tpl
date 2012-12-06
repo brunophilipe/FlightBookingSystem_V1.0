@@ -68,7 +68,7 @@ foreach($allroutes as $route)
 		if($route->bidid != 0)
 	    {
         ?>
-        <img src="http://alvandair.com/lib/skins/aqua/images/BookingButt/SwissBook.png" border="0">
+        <img src="<?php echo fileurl('/lib/Book2.png') ;?>" border="0">
         <?php
 		}
         else
