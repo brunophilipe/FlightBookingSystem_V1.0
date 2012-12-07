@@ -62,7 +62,7 @@ foreach($allroutes as $route)
 	<td width="20%" align="center" valign="middle"><?php echo $route->depicao ;?></td>
 	<td width="20%" align="center" valign="middle"><?php echo $route->arricao ;?></td>
 	<td width="20%" align="center" valign="middle"><?php echo $route->aircraft ;?></td>
-    <td width="20%" align="center" valign="middle"><a class="{button:{icons:{primary:'ui-icon-arrowthick-1-s'}}}" href="#" onclick="$('#details_dialog_<?php echo $route->flightnum;?>').toggle()"><input type="button" value="Details"></a>
+    <td width="20%" align="center" valign="middle"><input type="button" value="Details" onclick="$('#details_dialog_<?php echo $route->flightnum;?>').toggle()">
          
 	   <?php 
 		if($route->bidid != 0)
