@@ -124,15 +124,8 @@ foreach($allroutes as $route)
 			$app = $speed / 60 ;
 			$flttime = round($dist / $app,0)+ 20;
 			$hours = intval($flttime / 60);
-            $minutes = (($flttime / 60) - $hours) * 60;
-			if($hours > "9" AND $minutes > "9")
-			{
-			echo $hours.':'.$minutes ;
-			}
-			else
-			{
-			echo '0'.$hours.':0'.$minutes ;
-			}
+            		$minutes = (($flttime / 60) - $hours) * 60;
+			printf("%02d:%02d",$hours,$minutes);
 			?> Hrs</b></font></td>
 			</tr>
 			<tr>
